@@ -16,16 +16,19 @@ public class Round : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-
+            Enemy target = other.gameObject.GetComponent<Enemy>();
+            if (target)
+                target.TakeDamage(damage);
         }
-        //Enemy target = other.gameObject.GetComponent<Enemy>();
-        //// Only attempts to inflict damage if the other game object has
-        //// the 'Target' component
-        //if (target != null)
-        //{
-        //    target.TakeDamage(damage);
-        //    Destroy(gameObject); // Deletes the round
-        //}
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerMovement target = other.gameObject.GetComponent<PlayerMovement>();
+            if (target)
+                target.TakeDamage(damage);
+        }
+
+        Destroy(gameObject);
     }
     #endregion
 

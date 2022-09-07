@@ -36,8 +36,6 @@ public class Enemy : MonoBehaviour
     #region UNITY_METHOD
     private void Awake()
     {
-
-
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         meshRenderer.material = new Material(meshRenderer.material);
